@@ -1,0 +1,260 @@
+/**
+ * Colors
+ */
+$dark: #007377;
+$med: #74a7ad;
+$light: #ffffff;
+$medlight: #dbe4e6;
+$marg: 1.5em;
+$sans: "Open Sans Condensed", "Helvetica Neue", Helvetica, Arial, sans-serif;
+$serif: "Arvo", "Archer", serif;
+$break: 700px;
+
+/**
+ * Mixins
+ */
+@mixin box-sizing( $box-model ) {
+	-webkit-box-sizing	: $box-model; // Safari <= 7
+	-moz-box-sizing		: $box-model; // Firefox <= 19
+	box-sizing			: $box-model;
+}
+
+@mixin serifbold() {
+	font-family: $serif;
+	font-weight: 700;
+}
+
+@mixin serifboldital() {
+	font-family: $serif;
+	font-weight: 700;
+	font-style: italic;
+}
+
+
+/**
+ * Reset
+ */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, dialog, em, font, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td {
+	border: 0;
+	font-family: inherit;
+	font-size: 100%;
+	font-style: inherit;
+	font-weight: inherit;
+	margin: 0;
+	outline: 0;
+	padding: 0;
+	vertical-align: baseline;
+}
+html {
+	font-size: 62.5%; /* Corrects text resizing oddly in IE6/7 when body font-size is set using em units */
+	overflow-y: scroll; /* Keeps page centered in all browsers regardless of content height */
+	-webkit-text-size-adjust: 100%; /* Prevents iOS text size adjust after orientation change, while keeping user zoom */
+	-ms-text-size-adjust:     100%;
+}
+*,
+*:before,
+*:after { /* apply a natural box layout model to all elements */
+	@include box-sizing(border-box);
+}
+body {
+	background: $light; /* Fallback for when there is no custom background color defined. */
+}
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+main,
+nav,
+section {
+	display: block;
+}
+ol, 
+ul {
+	list-style: none;
+}
+table { /* tables still need 'cellspacing="0"' in the markup */
+	border-collapse: separate;
+	border-spacing: 0;
+}
+caption, 
+th, 
+td {
+	font-weight: normal;
+	text-align: left;
+}
+blockquote:before, 
+blockquote:after,
+q:before, 
+q:after {
+	content: "";
+}
+blockquote, 
+q {
+	quotes: "" "";
+}
+a:focus {
+	outline: thin dotted;
+}
+a:hover,
+a:active {
+	outline: 0;
+}
+a img {
+	border: 0;
+}
+
+
+
+/**
+ * Global Styles
+ */
+
+p {
+	margin-bottom: $marg;
+}
+
+h1 {
+	font-size: 60px;
+	@include serifboldital();
+}
+
+h2 {
+	font-size: 40px;
+	@include serifboldital();
+}
+
+h3 {
+	font-size: 32px;
+	@include serifboldital();
+}
+
+h4 {
+	font-size: 26px;
+	@include serifboldital();
+
+	.members &,
+	.orgs & {
+		margin-bottom: 1em;
+	}
+}
+
+h5 {
+	font-size: 20px;
+	@include serifboldital();
+}
+
+h6 {
+	font-size: 16px;
+	@include serifboldital();
+}
+
+
+
+/**
+ * Site Styles
+ */
+body {
+	color: $light;
+	background: $light;
+	font-size: 16px;
+	font-family: $sans;
+}
+
+header {
+	background: $dark;
+	text-align: center;
+	padding: 1em;
+	border-bottom: 1px solid $med;
+}
+
+.wrap {
+	max-width: 56.25em;
+	margin: 0 auto;
+}
+
+.thirds {
+	width: 33.3%;
+	float: left;
+}
+
+.logo {
+	max-width: 300px;
+	margin: 0 auto $marg;
+}
+
+.header_creds {
+	font-family: $serif;
+	font-size: 21px;
+}
+
+.content {
+	background: $medlight;
+	background-image: url( static_image.png );	
+	background-position: top center;
+	background-repeat: no-repeat;
+	color: $dark;
+	padding-top: 300px;
+	overflow: auto;
+	font-size: 20px;
+}
+
+.halvsies {
+	padding: 1em;
+	width: 100%;
+
+	@media screen and (min-width: $break) {
+		width: 50%;
+		float: left;
+	}
+}
+
+.give_image {
+	text-align: center;
+
+	img {
+		width: 100%;
+		max-width: 475px;
+	}
+}
+
+.members {
+	background: $med;
+	overflow: auto;
+	padding: 1.5em;
+	text-align: center;
+}
+
+.orgs {
+	color: $dark;
+	overflow: auto;
+	padding: 1.5em;
+	text-align: center;
+}
+
+.list {
+	column-width: 16em;
+}
+
+footer {
+	background: $dark;
+	padding: 1.5em 1em 1em;
+	text-align: center;
+	font-family: $serif;
+	line-height: 1.5em;
+	font-size: 14px;
+}
+
+.house {
+	max-width: 40px;
+	margin: 0 auto 1em;
+}
